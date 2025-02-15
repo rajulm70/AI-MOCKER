@@ -1,0 +1,24 @@
+/* Dashboard Container Styling */
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows wrapping of elements when space is insufficient */
+    padding: 90px;
+    border-radius: 10px; /* Optional: gives a rounded edge effect */
+    background-image: url('https://workik.com/staticassets/images/Bottom%20Grid.svg');
+    background-size: cover; /* Ensure the background covers the entire area */
+    background-position: center; /* Center the background image */
+    min-height: 100vh; /* Optional: set a minimum height for the dashboard */
+    gap: 20px; /* Adds spacing between items when stacked vertically */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally in the vertical layout */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+

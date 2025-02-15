@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+/* Main Container */
+.login-photo {
+    background: #f1f7fc;
+    padding: 30px 0;
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* Image Section */
+.login-photo .image-holder {
+    display: table-cell;
+    width: auto;
+    background: url('https://img.freepik.com/premium-photo/artificial-intelligence-digital-brain-future-tech-4k-hd-background_1193781-13384.jpg');
+    background-size: cover;
+}
+
+/* Form Container */
+.login-photo .form-container {
+    display: table;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Styling */
+.login-photo form {
+    display: table-cell;
+    width: 350px;
+    background-color: #ffffff;
+    padding: 40px;
+    color: #505e6c;
+}
+
+.image-center{
+    margin-bottom: 20px;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 991px) {
+    .login-photo form {
+        padding: 30px;
+    }
+}
+
+/* Form Heading */
+.login-photo form h2 {
+    font-size: 24px;
+    /* line-height: 6.2; */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Input Fields */
+.login-photo form .form-control {
+    background: #f7f9fc;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 6px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.login-photo form .btn-primary {
+    background:#f4476b;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: none;
+    margin-top: 20px;
+    text-shadow: none;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    outline: none !important;
+}
+
+.login-photo form .btn-primary:hover,
+.login-photo form .btn-primary:active {
+    background:#eb3b60;
+}
+
+/* Account Link */
+.login-photo form .already {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Center the admin icon image */
+.image-center {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.image-center img {
+    width: 100px;
+    height: auto;
+}
+
+.btn-loading {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.btn-loading:hover {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

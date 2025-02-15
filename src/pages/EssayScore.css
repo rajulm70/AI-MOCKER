@@ -1,0 +1,285 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.h1Style {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Specific styling for the EssayScore Component */
+.score-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.score-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.score-label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.score-input-textarea,
+.score-input-text {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #030303;
+    background-color: #cbcaca;
+    transition: all 0.3s ease;
+}
+
+.score-input-textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+.score-input-text:focus,
+.score-input-textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #cbcaca;
+}
+
+.submit-button {
+    padding: 12px 20px;
+    width: 250px;
+    /* margin-left: 27% !important; */
+    margin: 20px auto;
+    background-color: #f4476b;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.submit-button:hover:enabled {
+    background-color: #fb2a54;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .score-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .score-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Specific styling for the Response Component */
+.response-container {
+    width: 90% !important;
+    max-width: 700px !important;
+    margin: 30px auto !important;
+    background-color: #fff;
+    padding: 20px !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.response-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.sectionx {
+    margin-bottom: 20px;
+}
+
+.section-titlex {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.section-contentx {
+    font-size: 1.1rem;
+}
+
+.score-green {
+    color: #28a745;
+}
+
+.score-yellow {
+    color: #f0ad4e;
+}
+
+.score-orange {
+    color: #ff851b;
+}
+
+.score-red {
+    color: #dc3545;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.section-content {
+    font-size: 1.1rem;
+}
+
+.response-button {
+    padding: 12px 20px;
+    width: 250px;
+    
+    background-color: #f4476b !important;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.response-button:hover {
+    background-color: #fb0738;
+}
+.circular-bar-essay {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.circle-bg-essay {
+    fill: none;
+    stroke: #e6e6e6;
+    stroke-width: 3.8;
+}
+
+.circular-chart-essay {
+    width: 100%;
+    height: 100%;
+}
+
+.circle-essay {
+    fill: none;
+    stroke-width: 2.9;
+    stroke: #4caf50;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s ease-out;
+}
+
+.percentage-essay {
+    font-size: 0.5em;
+    fill: #333;
+    text-anchor: middle;
+    font-weight: bold;
+}
+
+
+.response-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.response-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.section-titlex {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.section-contentx {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.score-green {
+    color: #4caf50;
+}
+
+.score-yellow {
+    color: #ffc107;
+}
+
+.score-orange {
+    color: #ff9800;
+}
+
+.score-red {
+    color: #f44336;
+}
+
+.word-counter {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 5px;
+    color: green;
+  }
+  
+  .word-counter.warning {
+    color: red;
+  }
+  

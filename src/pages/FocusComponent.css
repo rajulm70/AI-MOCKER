@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+/* Focus Section Styling */
+.focus-section {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 92vh;
+    padding: 20px;
+    background: url('https://img.freepik.com/premium-photo/artificial-intelligence-humanoid-head-with-neural-network-thinks-ai-with-digital-brain-is-learning-processing-big-data-analysis-information-technology-background-banner-copy-space_256259-3972.jpg') no-repeat center center/cover;
+    background-size: cover;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.focus-content {
+    text-align: left;
+    z-index: 2;
+    color: #fff;
+    max-width: 100%; /* Allow content to occupy full width */
+    margin-left: 20px; /* Adjust margin */
+    word-wrap: break-word; /* Break long words */
+}
+
+.focus-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  overflow: hidden; /* Ensure the typing effect works smoothly */
+  white-space: nowrap; /* Enable typing effect for desktop view */
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #bd1cf8;
+  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+@keyframes typing {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+      border-color: transparent;
+  }
+}
+
+.highlight {
+    color: #fc99d7;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #f656bc, 0 0 20px #f656bc;
+    }
+    to {
+        text-shadow: 0 0 20px #f656bc, 0 0 30px #f656bc;
+    }
+}
+
+.focus-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1s forwards;
+}
+
+.cta-button {
+    background-color: #e7a8f8;
+    color: #000;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #de77fb;
+    transform: scale(1.06);
+}
+
+/* Floating icons */
+.animation-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    animation: float 5s ease-in-out infinite;
+}
+
+.icon-1 {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.icon-2 {
+    top: 50%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.icon-3 {
+    top: 70%;
+    left: 40%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Apply blur effect to the background image */
+.focus-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    background: inherit;
+    filter: blur(2px);
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .focus-title {
+      font-size: 2rem; /* Adjust font size for mobile */
+      white-space: normal; /* Allow text to wrap */
+      word-break: break-word; /* Ensure words break properly */
+  }
+ .focus-subtitle{
+    font-size: 1.2rem;
+  }
+  .typing-effect {
+      white-space: normal; /* Allow wrapping for mobile */
+      display: block; /* Stack content vertically */
+      animation: none; /* Disable typing effect in mobile view */
+      border-right: none;
+  }
+
+  .highlight {
+      display: inline; /* Ensure highlight behaves correctly */
+  }
+}
