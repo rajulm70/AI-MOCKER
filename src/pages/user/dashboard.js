@@ -15,6 +15,7 @@ import {
 import "./Dashboard.css";
 import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
+import { ResponsiveContainer } from "recharts";
 
 const pieData = [
   { name: "Completed", value: 75 },
@@ -54,7 +55,7 @@ const essayData = [
 ];
 
 const Dashboard = () => {
-  const [auth] = useAuth();
+  const [auth, setAuth] = useAuth();
   const [activeTab, setActiveTab] = useState("personal");
   const [showModal, setShowModal] = useState(false);
   const [editedUser, setEditedUser] = useState({
@@ -64,9 +65,13 @@ const Dashboard = () => {
   });
 
   const handleSave = () => {
-    auth.user.name = editedUser.name;
-    auth.user.email = editedUser.email;
-    auth.user.address = editedUser.address;
+    const updatedUser = {
+      ...auth.user,
+      name: editedUser.name,
+      email: editedUser.email,
+      address: editedUser.address
+    };
+    setAuth({ ...auth, user: updatedUser });
     setShowModal(false);
   };
 
@@ -163,6 +168,7 @@ const Dashboard = () => {
 
               <div className="dsh-card dsh-full-width">
                 <h3 className="dsh-card-title">Progress</h3>
+                <ResponsiveContainer width="100%" height={220}>
                 <LineChart width={850} height={220} data={lineData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="day" />
@@ -171,11 +177,12 @@ const Dashboard = () => {
                   <Legend />
                   <Line type="monotone" dataKey="performance" stroke="#0ea5e9" strokeWidth={3} />
                 </LineChart>
+                </ResponsiveContainer>
               </div>
             </div>
           )}
 
-          {['interview', 'quiz', 'essay'].includes(activeTab) && (
+          {["interview", "quiz", "essay"].includes(activeTab) && (
             <div className="dsh-card dsh-full-width">
               <h2 className="dsh-card-title">Last 10 {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Records</h2>
               <ul>
@@ -188,6 +195,7 @@ const Dashboard = () => {
                 ))}
               </ul>
               <h3 className="dsh-card-title" style={{ marginTop: '1rem' }}>Statistics</h3>
+              <ResponsiveContainer width="100%" height={220}>
               <LineChart width={850} height={220} data={activeTab === 'interview' ? interviewData : activeTab === 'quiz' ? quizData : essayData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey={activeTab === 'interview' ? 'round' : activeTab === 'quiz' ? 'date' : 'essay'} />
@@ -196,6 +204,7 @@ const Dashboard = () => {
                 <Legend />
                 <Line type="monotone" dataKey={activeTab === 'quiz' ? 'accuracy' : 'score'} stroke="#0ea5e9" strokeWidth={3} />
               </LineChart>
+              </ResponsiveContainer>
             </div>
           )}
 
