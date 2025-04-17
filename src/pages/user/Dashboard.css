@@ -1,0 +1,286 @@
+.dsh-dashboard-container {
+    display: flex;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #f5f6fa;
+  }
+  
+  /* Sidebar */
+  .dsh-sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .dsh-profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .dsh-avatar {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .dsh-username {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .dsh-userrole {
+    color: gray;
+    font-size: 0.9rem;
+  }
+  
+  .dsh-nav-buttons{
+    margin-top: 2rem;
+  }
+
+
+  .dsh-nav-buttons button {
+    width: 100%;
+    padding: 10px;
+    /* margin: 5px 0; */
+    /* font-weight: bold; */
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .dsh-btn-light {
+    background-color: #f1f1f1;
+  }
+  
+  .dsh-btn-primary {
+    background-color: #0ea5e9;
+    color: white;
+  }
+  
+  .dsh-apps {
+    margin-top: 30px;
+  }
+  
+  .dsh-apps-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Main Content */
+  .dsh-main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  .dsh-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .dsh-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 17.5 rem;
+    height: 19.375 rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .dsh-full-width {
+    flex-basis: 100%;
+  }
+  
+  .dsh-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .dsh-chart-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+  
+  .dsh-percentage {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .dsh-overview-values {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  
+  .dsh-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .dsh-audience-views .dsh-view-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .dsh-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .dsh-progress-fill {
+    height: 100%;
+    background-color: #0ea5e9;
+    border-radius: 5px;
+  }
+  
+  .dsh-personal-info p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .dsh-card:hover {
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+  }
+  
+  .dsh-card-title {
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .dsh-value {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .dsh-view-row span {
+    font-weight: 500;
+  }
+  
+  .dsh-success {
+    color: #10b981;
+  }
+  
+  .dsh-danger {
+    color: #ef4444;
+  }
+  .dsh-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .dsh-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dsh-modal h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .dsh-modal label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .dsh-modal input {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .dsh-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .dsh-save-btn,
+  .dsh-cancel-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .dsh-save-btn {
+    background-color: #0ea5e9;
+    color: white;
+  }
+  
+  .dsh-save-btn:hover {
+    background-color: #0284c7;
+  }
+  
+  .dsh-cancel-btn {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .dsh-cancel-btn:hover {
+    background-color: #aaa;
+  }
+  .dsh-card-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dsh-edit-btn,
+  .dsh-save-btn {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .dsh-edit-btn:hover,
+  .dsh-save-btn:hover {
+    background-color: #0284c7;
+  }
+  
+  .dsh-personal-info input {
+    margin-left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+    
+  
