@@ -107,16 +107,19 @@ const Quizz = () => {
                     <label htmlFor="language" className="input-label">
                         Preferred Language:
                     </label>
-                    <input
-                        type="text"
+                    <select
                         id="language"
                         name="language"
                         value={language}
                         onChange={handleLanguageChange}
                         className="input-field"
-                        placeholder="e.g., Hindi, Spanish"
                         required
-                    />
+                    >
+                        <option value="">Select a language</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                    </select>
+
                     <br />
 
                     <button type="submit" className="submit-button" disabled={loading}>
