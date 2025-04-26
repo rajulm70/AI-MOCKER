@@ -18,19 +18,19 @@ import { useAuth } from "../../context/auth";
 import { ResponsiveContainer } from "recharts";
 
 const pieData = [
-  { name: "Completed", value: 75 },
-  { name: "In Progress", value: 25 },
+  { name: "Completed", value: 320 },
+  { name: "In Progress", value: 80 },
 ];
 const COLORS = ["#0ea5e9", "#e5e7eb"];
 
 const lineData = [
-  { day: "01", performance: 45 },
-  { day: "05", performance: 47 },
-  { day: "10", performance: 46 },
-  { day: "15", performance: 48 },
-  { day: "20", performance: 47 },
-  { day: "25", performance: 49 },
-  { day: "30", performance: 50 },
+  { day: "01", performance: 60 },
+  { day: "05", performance: 62 },
+  { day: "10", performance: 65 },
+  { day: "15", performance: 68 },
+  { day: "20", performance: 70 },
+  { day: "25", performance: 75 },
+  { day: "30", performance: 78 },
 ];
 
 const interviewData = [
@@ -52,6 +52,12 @@ const essayData = [
   { essay: 'Essay 2', score: 75 },
   { essay: 'Essay 3', score: 80 },
   { essay: 'Essay 4', score: 85 },
+];
+
+const moduleUsage = [
+  { module: "Mock Interview", usage: 120 },
+  { module: "Essay Writing", usage: 95 },
+  { module: "Quiz", usage: 110 },
 ];
 
 const Dashboard = () => {
@@ -87,7 +93,7 @@ const Dashboard = () => {
             />
             <div>
               <p className="dsh-username">Welcome Back</p>
-              <p className="dsh-userrole">{auth?.user?.name}</p>
+              <p className="dsh-userrole">{auth?.user?.name.split(' ')[0]}</p>
             </div>
           </div>
           <div className="dsh-nav-buttons">
@@ -128,55 +134,50 @@ const Dashboard = () => {
                       {pieData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
-                      <Label value="75%" position="center" style={{ fill: "#0ea5e9", fontSize: "16px", fontWeight: "bold" }} />
+                      <Label value="80%" position="center" style={{ fill: "#0ea5e9", fontSize: "16px", fontWeight: "bold" }} />
                     </Pie>
                   </PieChart>
                 </div>
                 <div className="dsh-overview-values">
                   <div>
-                    <p className="dsh-value">786,617</p>
-                    <p>Completed</p>
+                    <p className="dsh-value">320</p>
+                    <p>Completed Sessions</p>
                   </div>
                   <div>
-                    <p className="dsh-value">13,561</p>
+                    <p className="dsh-value">80</p>
                     <p>In Progress</p>
                   </div>
                 </div>
               </div>
 
               <div className="dsh-card">
-                <h3 className="dsh-card-title">Audience Views</h3>
+                <h3 className="dsh-card-title">Module Usage</h3>
                 <div className="dsh-audience-views">
-                  {["Video 1", "Video 2", "Video 3", "Video 4"].map((video, i) => {
-                    const progress = [80, 20, 30, 45][i];
-                    const change = ["73% ↑", "8% ↓", "19% ↑", "23% ↓"][i];
-                    const colorClass = change.includes("↑") ? "dsh-success" : "dsh-danger";
-                    return (
-                      <React.Fragment key={i}>
-                        <div className="dsh-view-row">
-                          <span>{video}</span>
-                          <span className={colorClass}>{change}</span>
-                        </div>
-                        <div className="dsh-progress-bar">
-                          <div style={{ width: `${progress}%` }} className="dsh-progress-fill"></div>
-                        </div>
-                      </React.Fragment>
-                    );
-                  })}
+                  {moduleUsage.map((mod, i) => (
+                    <React.Fragment key={i}>
+                      <div className="dsh-view-row">
+                        <span>{mod.module}</span>
+                        <span className="dsh-success">{mod.usage} uses</span>
+                      </div>
+                      <div className="dsh-progress-bar">
+                        <div style={{ width: `${mod.usage / 1.5}%` }} className="dsh-progress-fill"></div>
+                      </div>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
 
               <div className="dsh-card dsh-full-width">
-                <h3 className="dsh-card-title">Progress</h3>
+                <h3 className="dsh-card-title">Performance Over Time</h3>
                 <ResponsiveContainer width="100%" height={220}>
-                <LineChart width={850} height={220} data={lineData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="day" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="performance" stroke="#0ea5e9" strokeWidth={3} />
-                </LineChart>
+                  <LineChart width={850} height={220} data={lineData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="day" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="performance" stroke="#0ea5e9" strokeWidth={3} />
+                  </LineChart>
                 </ResponsiveContainer>
               </div>
             </div>
@@ -196,14 +197,14 @@ const Dashboard = () => {
               </ul>
               <h3 className="dsh-card-title" style={{ marginTop: '1rem' }}>Statistics</h3>
               <ResponsiveContainer width="100%" height={220}>
-              <LineChart width={850} height={220} data={activeTab === 'interview' ? interviewData : activeTab === 'quiz' ? quizData : essayData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey={activeTab === 'interview' ? 'round' : activeTab === 'quiz' ? 'date' : 'essay'} />
-                <YAxis domain={[0, 100]} />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey={activeTab === 'quiz' ? 'accuracy' : 'score'} stroke="#0ea5e9" strokeWidth={3} />
-              </LineChart>
+                <LineChart width={850} height={220} data={activeTab === 'interview' ? interviewData : activeTab === 'quiz' ? quizData : essayData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey={activeTab === 'interview' ? 'round' : activeTab === 'quiz' ? 'date' : 'essay'} />
+                  <YAxis domain={[0, 100]} />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey={activeTab === 'quiz' ? 'accuracy' : 'score'} stroke="#0ea5e9" strokeWidth={3} />
+                </LineChart>
               </ResponsiveContainer>
             </div>
           )}
@@ -211,7 +212,7 @@ const Dashboard = () => {
           {showModal && (
             <div className="dsh-modal-overlay">
               <div className="dsh-modal">
-                <h4 style={{textAlign:'center', marginBottom:'0.9rem'}}><b>Edit Personal Information</b></h4>
+                <h4 style={{ textAlign: 'center', marginBottom: '0.9rem' }}><b>Edit Personal Information</b></h4>
                 <label>Name:<input type="text" value={editedUser.name} onChange={(e) => setEditedUser({ ...editedUser, name: e.target.value })} /></label>
                 <label>Email:<input type="email" value={editedUser.email} onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })} /></label>
                 <label>Address:<input type="text" value={editedUser.address} onChange={(e) => setEditedUser({ ...editedUser, address: e.target.value })} /></label>
